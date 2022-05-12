@@ -3,27 +3,24 @@ require('mongoose-double')(mongoose);
 var SchemaTypes = mongoose.Schema.Types;
 const transferTableSchema = mongoose.Schema({
     sender:{
-        type : mongoose.Schema.Types.ObjectId,
+        type : String,
         required : true,
         ref : 'User'
     },
-     senderBalanceBeforeTransfer:{
-        type: SchemaTypes.Double
-    },
+
     senderBalanceAfterTransfer:{
         type: SchemaTypes.Double
     },
     
     recevier:{
-        type : mongoose.Schema.Types.ObjectId,
+        type : String,
         required : true,
         ref : 'User'
     },
-
-    recevierBalanceBeforeTransfer:{
+    recevierBalanceAfterTransfer:{
         type: SchemaTypes.Double
     },
-    recevierBalanceAfterTransfer:{
+    amount :{
         type: SchemaTypes.Double
     }
 
