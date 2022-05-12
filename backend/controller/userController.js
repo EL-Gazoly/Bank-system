@@ -14,13 +14,6 @@ const getAllUser = asyncHandler(async(req,res) =>{
 const getUserWithId = asyncHandler(async(req,res) => {
     User.findById(req.params.id)
     .then((result) => {
-        result = {
-            'first_name' : result.first_name,
-            'last_name' : result.last_name,
-            'email' : result.email,
-            'gender' : result.gender,
-            'current_balance' : result.current_balance
-        }
         res.status(200).send(result)
     })
     .catch( (err) => {
