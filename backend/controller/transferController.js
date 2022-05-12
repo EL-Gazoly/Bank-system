@@ -1,6 +1,7 @@
 const User = require('../Models/usersModel')
 const TransferTable = require('../Models/transferTableModel')
 const asyncHandler =require('express-async-handler')
+const res = require('express/lib/response')
 
 const updataeBalance = asyncHandler(async(req,res)=>{
     var sender =  await User.findById(req.params.senderid)
@@ -15,12 +16,11 @@ const updataeBalance = asyncHandler(async(req,res)=>{
     } 
     else{
     const transfertable = await TransferTable.create({
-        sender: req.params.senderid,
-        senderBalanceBeforeTransfer : sender.current_balance,
+        sender: sender.first_name,
         senderBalanceAfterTransfer : senderNewBalance,
-        recevier : req.params.id,
-        recevierBalanceBeforeTransfer : recevier.current_balance,
-        recevierBalanceAfterTransfer : recevierNewBalance
+        recevier : recevier.first_name,
+        recevierBalanceAfterTransfer : recevierNewBalance,
+        amount: amount
     })
 
     var updateSenderBalance = await User.findByIdAndUpdate(req.params.senderid, {current_balance :senderNewBalance },{new: true})
@@ -30,6 +30,17 @@ const updataeBalance = asyncHandler(async(req,res)=>{
     }
 })
 
+const showTable = asyncHandler( async(req,res) => {
+    TransferTable.find()
+    .then((result) => {
+        res.status(200).send(result);
+    })
+    .catch((err) => {
+        console.log(err);
+    })
+})
+
 module.exports = {
-    updataeBalance
+    updataeBalance,
+    showTable
 }

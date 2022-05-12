@@ -18,11 +18,14 @@ const getUserWithId = asyncHandler(async(req,res) => {
     })
     .catch( (err) => {
         res.status(400)
-        throw new Error('User not found')
+        throw  Error('User not found')
     })
 })
 
+
+ 
 module.exports = {
     getAllUser,
-    getUserWithId
+    getUserWithId,
+    
 }
