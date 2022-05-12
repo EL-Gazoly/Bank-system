@@ -1,7 +1,9 @@
 const express = require('express')
 
 const router = express.Router()
-const {updataeBalance} = require('../controller/transferController')
-router.get('/:senderid/:id/:amount',updataeBalance)
+const {updataeBalance ,showTable} = require('../controller/transferController')
+router.put('/:senderid/:id/:amount',updataeBalance)
 
-module.exports = router
+
+router.get('/table',showTable)
+module.exports = router    
