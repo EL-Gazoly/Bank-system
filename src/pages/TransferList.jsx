@@ -1,8 +1,8 @@
-import axios from "../Features/axios";
+import axios from "../components/axios";
 import React , {useState , useEffect} from 'react'
 import DisplayTransfers from "../components/DisplayTrasfers";
 
- 
+
 function TransferList() {
     const [transfers , setTransfers ]= useState([]);
 
