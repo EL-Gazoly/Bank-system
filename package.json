@@ -1,0 +1,37 @@
+{
+  "name": "bank-system",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "cd backend && nodemon server.js",
+    "docker-build-client": "NPM_CONFIG_PRODUCTION=false cd frontend && yarn install && yarn run build",
+    "docker-build-webapp": "concurrently \"yarn run docker-build-client\" \"yarn start\"",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "cd backend && nodemon server.js",
+    "client": "cd frontend && npm start",
+    "dev": "concurrently -n 'server,client' -c 'blue,green' \"npm run server\" \"npm run client\"",
+    "install-client":"cd client && npm install",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+  },
+  "keywords": [],
+  "author": "Adham ElGazoly",
+  "license": "MIT",
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
+    "@fortawesome/react-fontawesome": "^0.1.18",
+    "colors": "^1.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.18.1",
+    "express-async-handler": "^1.2.0",
+    "mongoose": "^6.3.2",
+    "mongoose-double": "^0.0.1",
+    "react-query": "^3.39.0"
+  },
+  "devDependencies": {
+    "concurrently": "^7.1.0",
+    "nodemon": "^2.0.16"
+  }
+}
