@@ -26,9 +26,9 @@ function Home() {
     </div>
     </div>
     </div>
-  <div >
+  <div className= '' >
         <img
-          className='w-full h-full object-cover mt-9 '
+          className='w-full h-full object-cover mt-9  '
           src= {transfer_money}
           alt=""
         />

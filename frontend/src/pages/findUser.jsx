@@ -5,7 +5,7 @@ import NotFound from "./notFound";
 import Loading from "./loading";
 const User = () => {
   const { id } = useParams()
-  const { data:user, isPending, error } = useFetch('https://spark-foundation-banksystem.herokuapp.com/api/users/' + id)
+  const { data:user, isPending, error } = useFetch('http://localhost:5000/api/users/' + id)
   return (  
     <>
     

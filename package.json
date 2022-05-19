@@ -5,8 +5,6 @@
   "main": "server.js",
   "scripts": {
     "start": "cd backend && nodemon server.js",
-    "docker-build-client": "NPM_CONFIG_PRODUCTION=false cd frontend && yarn install && yarn run build",
-    "docker-build-webapp": "concurrently \"yarn run docker-build-client\" \"yarn start\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "cd backend && nodemon server.js",
     "client": "cd frontend && npm start",

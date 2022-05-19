@@ -1,5 +1,5 @@
 import userImage from '../assets/images/user.jpg'
-import axios from "./axios";
+import axios from "../Features/axios";
 import React , {useState , useEffect , useRef} from 'react'
 
 const UserProfile = ({user}) => {

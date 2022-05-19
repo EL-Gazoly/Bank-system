@@ -1,4 +1,4 @@
-import axios from "../components/axios";
+import axios from "../Features/axios";
 import React , {useState , useEffect} from 'react'
 import DispalyUsers from "../components/DisplayUsers";
 
