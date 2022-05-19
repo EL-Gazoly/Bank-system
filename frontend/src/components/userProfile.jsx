@@ -52,6 +52,7 @@ const UserProfile = ({user}) => {
          setPressed(false)
        }
     
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     } , [pressed])
 
 
@@ -78,25 +79,25 @@ const  transfer = async() => {
     </div>
   </div>
   <div class="bg-white my-4 shadow p-8 rounded-lg ">
-  <div className=' ml-20'>
-    <div class="flex items-center mb-4">
+  <div className=' ml-52 '>
+    <div class="flex items-center mb-4 ">
         <h2 class="text-lg">Your Transaction Information</h2>
     </div>
     <div className='w-full'>
     <label for='sender' className='block text-sm mb-2'>From</label>
     <span className=' font-semibold '> {user.first_name}</span> 
-    <label for='sender' className=' block text-sm mb-2'>To </label>
+    <label for='sender' className=' block text-sm mb-5 mt-3'>To </label>
     
-      <select ref={selectRef} className= " w-5/6  text-sm bg-gray-light text-gray-darkest rounded-1 p-3 focus:outline-none bg-gray-100 ">
+      <select ref={selectRef} className= " w-5/6  text-sm bg-gray-light text-gray-darkest rounded-1 p-3 focus:outline-none bg-gray-100  hover:shadow-md mb-5">
       <option  > Receiver </option>
       {users.map((users,index) => {if(users.first_name !== user.first_name){return  <option  key={users._id}> {users.first_name}</option> } 
       else {return null}   })}  
        </select>
       
-    <label className=' block text-sm mb-2'>Amount</label>
-    <input onChange={e  =>setAmount(e.target.value) } ref={inputREf} type="text" placeholder='Amount' className='block w-5/6 flex-1 text-sm bg-gray-100 text-gray-darkest rounded-1 p-3 focus:'></input>
+    <label className=' block text-sm mb-2 ml-2'>Amount</label>
+    <input onChange={e  =>setAmount(e.target.value) } ref={inputREf} type="text" placeholder='Amount' className='block w-5/6 flex-1 text-sm bg-gray-100 text-gray-darkest rounded-1 p-3 focus: '></input>
     
-    <button className=' ml-16 mt-16 w-5/6 relative  h-fit px-4 py-2 text-xl border rounded bg-black text-white hover:bg-indigo-700 ' onClick={() => {
+    <button className='  mt-16 w-5/6 relative  h-fit px-4 py-2 text-xl border rounded bg-black text-white hover:bg-indigo-700 ' onClick={() => {
       handleSubmit(user.first_name ,selectRef.current.value);
       } 
     }>Send</button>

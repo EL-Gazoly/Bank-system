@@ -5,7 +5,7 @@ import NotFound from "./notFound";
 import Loading from "./loading";
 const User = () => {
   const { id } = useParams()
-  const { data:user, isPending, error } = useFetch('http://localhost:5000/api/users/' + id)
+  const { data:user, isPending, error } = useFetch('https://team-el-gazoly-bank-system-main-k3vbm4kpjq-wm.a.run.app/api/users/' + id)
   return (  
     <>
     
